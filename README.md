@@ -1,7 +1,9 @@
 # set-test
 
-  Takes two CSV files as input and compares them to find the distinct elements in each file.
-  Saves the results of the comparison to two separate files.
+'''
+Takes two CSV files as input and compares them to find the distinct elements in each file.
+Saves the results of the comparison to two separate files.
+'''
 
 ### To run this program on Windows:
 1. Open set_test_exe.bat
