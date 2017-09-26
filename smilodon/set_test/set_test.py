@@ -48,5 +48,16 @@ print("Total Distinct Items in Group 2: {items}".format(items=len(set2_distinct)
 print(set2_distinct)
 
 # save items distinct to each set to file
-exportFileList(set1_distinct, "group1_distinct.csv", "w")
-exportFileList(set2_distinct, "group2_distinct.csv", "w")
+try:
+    exportFileList(set1_distinct, "group1_distinct.csv", "w")
+except Exception:
+    print("File export failed for {0} distinct elements".format(group1))
+
+print("Successfully saved {0} distinct elements as group1_distinct.csv".format(group1))
+
+try:
+    exportFileList(set2_distinct, "group2_distinct.csv", "w")
+except Exception:
+    print("File export failed for {0} distinct elements".format(group2))
+
+print("Successfully saved {0} distinct elements as group2_distinct.csv".format(group2))
