@@ -3,28 +3,40 @@
 from functions import *
 
 # import files
-try:
-    group1 = input("Enter first filename: ")
-    file1 = importFile(group1, 'rt', 'windows-1250')
-except Exception:
-    print("Couldn't read file.")
+while(True):
+    try:
+        group1 = input("Enter first filename: ")
+        file1 = importFile(group1, 'rt', 'windows-1250')
+        break
+    except Exception:
+        print("Couldn't read file.")
 
-try:
-    group2 = input("Enter second filename: ")
-    file2 = importFile(group2, 'rt', 'windows-1250')
-except Exception:
-    print("Couldn't read file.")
+while(True):
+    try:
+        group2 = input("Enter second filename: ")
+        file2 = importFile(group2, 'rt', 'windows-1250')
+        break
+    except Exception:
+        print("Couldn't read file.")
 
 key = input("Please enter column name to compare: ")
 
 # create sets
-set1 = set()
-for entry in file1:
-    set1.add(entry[key])
+try:
+    set1 = set()
+    for entry in file1:
+        set1.add(entry[key])
+except KeyError:
+    print("Key does not exist in {0}".format(group1))
+    exit(1)
 
-set2 = set()
-for entry in file2:
-    set2.add(entry[key])
+try:
+    set2 = set()
+    for entry in file2:
+        set2.add(entry[key])
+except KeyError:
+    print("Key does not exist in {0}".format(group2))
+    exit(1)
 
 # print set lengths
 print('Total Unique Items in Group 1: {items}'.format(items=len(set1)))
